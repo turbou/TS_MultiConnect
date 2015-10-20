@@ -1,4 +1,4 @@
-package jp.co.nri.ttsplugin;
+package jp.co.tabocom.tsplugin.multiconnect;
 
 import jp.co.tabocom.teratermstation.Main;
 import jp.co.tabocom.teratermstation.model.TargetNode;
@@ -43,21 +43,20 @@ public class MultiConnectAction extends TeraTermStationAction {
     public void run() {
         String dialogMsg = String.format("同サーバに複数接続する数を指定してください。（最大%d）", max);
         final String errorMsg = String.format("%dから%dまでの数値を指定してください。", MIN_NUM, max);
-        InputDialog dialog = new InputDialog(this.shell, "同サーバ複数接続", dialogMsg, String.valueOf(MIN_NUM),
-                new IInputValidator() {
-                    @Override
-                    public String isValid(String str) {
-                        try {
-                            int num = Integer.valueOf(str);
-                            if (num < MIN_NUM || num > max) {
-                                return errorMsg;
-                            }
-                        } catch (NumberFormatException nfe) {
-                            return errorMsg;
-                        }
-                        return null;
+        InputDialog dialog = new InputDialog(this.shell, "同サーバ複数接続", dialogMsg, String.valueOf(MIN_NUM), new IInputValidator() {
+            @Override
+            public String isValid(String str) {
+                try {
+                    int num = Integer.valueOf(str);
+                    if (num < MIN_NUM || num > max) {
+                        return errorMsg;
                     }
-                });
+                } catch (NumberFormatException nfe) {
+                    return errorMsg;
+                }
+                return null;
+            }
+        });
         if (dialog.open() == Dialog.OK) {
             Main main = (Main) this.shell.getData("main");
             EnvTabItem tabItem = main.getCurrentTabItem();

@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
-encoding//src/jp/co/nri/ttsplugin/MultiConnectAction.java=UTF-8
-encoding//src/jp/co/nri/ttsplugin/MultiConnectPlugin.java=UTF-8
-encoding//src/jp/co/nri/ttsplugin/MultiConnectPreferencePage.java=UTF-8
-encoding//src/jp/co/nri/ttsplugin/PreferenceConstants.java=UTF-8
+encoding//src/jp/co/tabocom/tsplugin/multiconnect/MultiConnectAction.java=UTF-8
+encoding//src/jp/co/tabocom/tsplugin/multiconnect/MultiConnectPlugin.java=UTF-8
+encoding//src/jp/co/tabocom/tsplugin/multiconnect/MultiConnectPreferencePage.java=UTF-8
+encoding//src/jp/co/tabocom/tsplugin/multiconnect/PreferenceConstants.java=UTF-8
 encoding/<project>=UTF-8

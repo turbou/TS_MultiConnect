@@ -1,4 +1,4 @@
-package jp.co.nri.ttsplugin;
+package jp.co.tabocom.tsplugin.multiconnect;
 
 public class PreferenceConstants {
 

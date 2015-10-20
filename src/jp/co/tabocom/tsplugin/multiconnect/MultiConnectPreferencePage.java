@@ -1,4 +1,4 @@
-package jp.co.nri.ttsplugin;
+package jp.co.tabocom.tsplugin.multiconnect;
 
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferencePage;

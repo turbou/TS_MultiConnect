@@ -3,7 +3,7 @@
     <target name="jar">
         <jar basedir="bin" jarfile="multiconnect.jar">
             <manifest>
-                 <attribute name="Plugin-Class" value="jp.co.nri.ttsplugin.MultiConnectPlugin"/>
+                 <attribute name="Plugin-Class" value="jp.co.tabocom.tsplugin.multiconnect.MultiConnectPlugin"/>
              </manifest>
       	</jar>
     </target>
