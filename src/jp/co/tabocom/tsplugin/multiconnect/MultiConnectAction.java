@@ -32,7 +32,7 @@ public class MultiConnectAction extends TeraTermStationAction {
     }
 
     @Override
-    public boolean isValid(TargetNode node) {
+    public boolean isValid() {
         if (node.getIpAddr() != null) {
             return true;
         }
