@@ -3,7 +3,7 @@ package jp.co.tabocom.tsplugin.multiconnect;
 import jp.co.tabocom.teratermstation.Main;
 import jp.co.tabocom.teratermstation.model.TargetNode;
 import jp.co.tabocom.teratermstation.ui.EnvTabItem;
-import jp.co.tabocom.teratermstation.ui.action.TeraTermStationAction;
+import jp.co.tabocom.teratermstation.ui.action.TeratermStationAction;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IInputValidator;
@@ -13,7 +13,7 @@ import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.swt.widgets.Shell;
 
-public class MultiConnectAction extends TeraTermStationAction {
+public class MultiConnectAction extends TeratermStationAction {
     private static final int MIN_NUM = 1;
     private static final int DEFAULT_MAX_NUM = 10;
     private static final int BULK_INTERVAL = 1700;
