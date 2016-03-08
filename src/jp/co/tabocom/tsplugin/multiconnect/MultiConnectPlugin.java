@@ -9,6 +9,7 @@ import jp.co.tabocom.teratermstation.plugin.TeratermStationPlugin;
 import jp.co.tabocom.teratermstation.ui.action.TeratermStationAction;
 import jp.co.tabocom.teratermstation.ui.action.TeratermStationBulkAction;
 
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -37,5 +38,10 @@ public class MultiConnectPlugin implements TeratermStationPlugin {
 
     @Override
     public void teminate(PreferenceStore preferenceStore) throws Exception {
+    }
+
+    @Override
+    public List<MenuManager> getSubmenus(TargetNode node, Shell shell, ISelectionProvider selectionProvider) {
+        return null;
     }
 }
