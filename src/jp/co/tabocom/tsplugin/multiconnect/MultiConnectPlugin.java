@@ -30,6 +30,9 @@ public class MultiConnectPlugin implements TeratermStationPlugin {
 
     @Override
     public List<TeratermStationContextMenu> getActions(TargetNode[] nodes, Shell shell) {
+        if (nodes[0].getIpAddr() == null) {
+            return null;
+        }
         MultiConnectAction action = new MultiConnectAction(nodes, null, shell);
         TeratermStationContextMenu menu = new TeratermStationContextMenu();
         menu.addAction(action);
