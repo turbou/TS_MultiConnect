@@ -1,17 +1,17 @@
 package jp.co.tabocom.tsplugin.multiconnect;
 
-import jp.co.tabocom.teratermstation.Main;
-import jp.co.tabocom.teratermstation.model.TargetNode;
-import jp.co.tabocom.teratermstation.ui.EnvTabItem;
-import jp.co.tabocom.teratermstation.ui.action.TeratermStationAction;
-
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.PreferenceStore;
-import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.ToolTip;
+
+import jp.co.tabocom.teratermstation.Main;
+import jp.co.tabocom.teratermstation.model.TargetNode;
+import jp.co.tabocom.teratermstation.ui.EnvTabItem;
+import jp.co.tabocom.teratermstation.ui.action.TeratermStationAction;
 
 public class MultiConnectAction extends TeratermStationAction {
     private static final int MIN_NUM = 1;
@@ -19,8 +19,8 @@ public class MultiConnectAction extends TeratermStationAction {
     private static final int BULK_INTERVAL = 1700;
     int max = DEFAULT_MAX_NUM;
 
-    protected MultiConnectAction(TargetNode node, Shell shell, ISelectionProvider selectionProvider) {
-        super("同サーバ複数接続", "icon.png", node, shell, selectionProvider);
+    public MultiConnectAction(TargetNode[] nodes, Object value, Shell shell) {
+        super("同サーバ複数接続", "icon.png", nodes, value, shell);
         Main main = (Main) this.shell.getData("main");
         PreferenceStore ps = main.getPreferenceStore();
         String psMax = ps.getString(PreferenceConstants.MAX_CONNECTION);
@@ -29,14 +29,6 @@ public class MultiConnectAction extends TeratermStationAction {
         } catch (NumberFormatException nfe) {
             // 何もしない.
         }
-    }
-
-    @Override
-    public boolean isValid() {
-        if (node.getIpAddr() != null) {
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -61,6 +53,7 @@ public class MultiConnectAction extends TeratermStationAction {
             Main main = (Main) this.shell.getData("main");
             EnvTabItem tabItem = main.getCurrentTabItem();
             int multipleCnt = Integer.valueOf(dialog.getValue());
+            TargetNode node = nodes[0];
             try {
                 for (int idx = 1; idx <= multipleCnt; idx++) {
                     tabItem.makeAndExecuteTTL(node, idx, null);
@@ -74,5 +67,10 @@ public class MultiConnectAction extends TeratermStationAction {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public ToolTip getToolTip() {
+        return null;
     }
 }
