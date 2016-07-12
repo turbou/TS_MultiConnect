@@ -5,10 +5,10 @@ import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.PreferenceStore;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.ToolTip;
 
 import jp.co.tabocom.teratermstation.Main;
+import jp.co.tabocom.teratermstation.TeratermStationShell;
 import jp.co.tabocom.teratermstation.model.TargetNode;
 import jp.co.tabocom.teratermstation.ui.EnvTabItem;
 import jp.co.tabocom.teratermstation.ui.action.TeratermStationAction;
@@ -19,9 +19,9 @@ public class MultiConnectAction extends TeratermStationAction {
     private static final int BULK_INTERVAL = 1700;
     int max = DEFAULT_MAX_NUM;
 
-    public MultiConnectAction(TargetNode[] nodes, Object value, Shell shell) {
+    public MultiConnectAction(TargetNode[] nodes, Object value, TeratermStationShell shell) {
         super("同サーバ複数接続", "icon.png", nodes, value, shell);
-        Main main = (Main) this.shell.getData("main");
+        Main main = this.shell.getMain();
         PreferenceStore ps = main.getPreferenceStore();
         String psMax = ps.getString(PreferenceConstants.MAX_CONNECTION);
         try {
@@ -50,7 +50,7 @@ public class MultiConnectAction extends TeratermStationAction {
             }
         });
         if (dialog.open() == Dialog.OK) {
-            Main main = (Main) this.shell.getData("main");
+            Main main = this.shell.getMain();
             EnvTabItem tabItem = main.getCurrentTabItem();
             int multipleCnt = Integer.valueOf(dialog.getValue());
             TargetNode node = nodes[0];
